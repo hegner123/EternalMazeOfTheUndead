@@ -1,8 +1,8 @@
 --inputs function
 function inputs()
-		if (iready ~= 0) then
+		if (input_ready ~= 0) then
 				if (not btn(4)) then
-						iready = iready -1;
+						input_ready = input_ready -1;
 				end
 		else
 				if (btn(0)) then player.x=player.x-1 player.dir=1 end

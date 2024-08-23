@@ -1,26 +1,32 @@
-player["attack"] = function(target)
-    player.action = "attack"
-    --if (target != nil) then
-    --target.h = target.h-player.str;
-    player.cooldown = player.atspd;
-    player.frame = player.atspd;
-    --end
-end
+function make_player()
+    player = {
+        health = 100,
+        str = 1,
+        spd = 10,
+        atspd = 10,
+        action = "idle",
+        injured = false,
+        cooldown = 0,
+        x = 64,
+        y = 54,
+        dir = 3,
+        frame = 0
+    }
+    player.attack = function()
+        player.action = "attack"
+        --if (target != nil) then
+        --target.h = target.h-player.str;
+        player.cooldown = player.atspd;
+        player.frame = player.atspd;
+        --end
+    end
 
-player["play"] = function(animation)
 
-end
-
-player["update"] = function()
-    if (player.frame == 0) then
-        if (player.action == "attack") then
-            player.play(player.action)
+    player.update = function()
+        if (player.cooldown > 0) then
+            player.cooldown = player.cooldown - 1;
+            elseif (player.cooldoown == 0) then
+            player.action = "idle"
         end
-    elseif (player.frame - 1 == 0) then
-        player.action = "idle"
-        player.frame = player.frame - 1;
-    else
-        player.frame = player.frame - 1;
-        player.play(player.action, player.frame)
     end
 end
