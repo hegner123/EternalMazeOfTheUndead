@@ -8,7 +8,7 @@ function updatee(e)
 end
 
 function roomupdate(r)
-	if (type(e)=="table") then
+	if (type(r)=="table") then
 		r.update()
 	else
 		return

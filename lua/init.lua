@@ -1,11 +1,13 @@
-
 function _init()
+    left = 1
+    right = 2
+    down = 3
+    up = 4
+    log_camera_position={x=0,y=0}
     input_ready=0
-    make_game()
-    make_player()
-    local room = make_room()
-    add(room.enemys,make_enemy())
     game_over = false
-    add(game.rooms, room)
     
+    make_game(make_room())
+    make_player()
+    add(game.rooms[game.croom].enemys,make_enemy(16,16))
 end

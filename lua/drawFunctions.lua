@@ -1,16 +1,11 @@
 --draw functions
-function draw(s, sx, sy)
-    spr(s, sx, sy)
-end
 
 function draw_enemy(enemy)
     spr(enemy.spr, enemy.x, enemy.y)
 end
 
-function draw_all_enemies(game)
-    for room_index, room in pairs(game.rooms) do
-        for enemy_index, enemy in pairs(room.enemys) do
-            draw_enemy(enemy)
-        end
+function draw_all_enemies(current_room, to_draw)
+    for _, enemy in pairs(current_room.enemys) do
+        add(to_draw, enemy)
     end
 end
