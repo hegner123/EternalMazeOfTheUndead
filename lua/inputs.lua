@@ -13,7 +13,7 @@ function inputs()
 				end
         end
 				-- if (btnp(4)) then  if (game.state=="play") then game.state="log" else game.state="play"end end 
-				if btnp(4) then  add(game.rooms[game.croom].enemys,make_enemy(flr(rnd(100) + 8), flr(rnd(100))+8))end
+				if btnp(4) then add_enemy_to_room() end
 		end
 end
 function log_inputs()

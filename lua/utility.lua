@@ -44,6 +44,10 @@ function generate_uuid()
     return uuid
 end
 
+function generate_rnd_max(max)
+    return flr(rnd(max))
+end
+
 function count_all_enemies(game)
     local total_enemies = 0
     for room_index, room in pairs(game.rooms) do
@@ -146,4 +150,9 @@ function id_exists(obj1, obj2)
     else
         return false
     end
+end
+
+function add_enemy_to_room()
+    local room = game.rooms[game.croom].enemys
+    add(room,make_enemy(flr(rnd(100) + 8), flr(rnd(100))+8))
 end
